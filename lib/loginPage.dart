@@ -56,7 +56,7 @@ class _LoginPageState extends State<LoginPage> {
 
               }, icon:Icon(Icons.arrow_forward), label: Text('Login')),
               FlatButton.icon(onPressed: (){
-                Navigator.push(context, MaterialPageRoute(builder:(context)  => RegisterPage()));
+                Navigator.pushReplacement(context, MaterialPageRoute(builder:(context)  => RegisterPage()));
               }, icon: Icon(Icons.verified_user), label: Text("Create New User"))
             ],
           ),

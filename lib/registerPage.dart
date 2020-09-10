@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'dart:convert';
 import 'package:http/http.dart' as http;
 
+import 'homepage.dart';
+
 class RegisterPage extends StatefulWidget {
   @override
   _RegisterPageState createState() => _RegisterPageState();
@@ -48,6 +50,9 @@ class _RegisterPageState extends State<RegisterPage> {
                 if (response.statusCode == 200) {
                   var body  =jsonDecode(response.body);
                   print(body["jwt"]);
+                  Navigator. pushReplacement(context, MaterialPageRoute(
+                      builder: (context) => HomePage(body["user"]["username"].toString(),body["jwt"].toString(),body["user"]["email"].toString())));
+
 
 
 
