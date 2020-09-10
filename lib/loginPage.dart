@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'dart:convert';
 import 'package:http/http.dart' as http;
+import 'package:new_strapi_test/homepage.dart';
 import 'package:new_strapi_test/registerPage.dart';
 
 
@@ -38,14 +39,15 @@ class _LoginPageState extends State<LoginPage> {
                 var url = "http://161.35.205.247/auth/local";
 
                 var response = await http.post(url, body: {
-                  "identifier" : "mebebo@mail.com",
-                  "password": "Bebo2612"
+                  "identifier" : emailTextControl.text.trim(),
+                  "password": passwordextControl.text
                 });
                 if (response.statusCode == 200) {
                   var body  =jsonDecode(response.body);
                   print(body["jwt"]);
 
-
+                  Navigator. pushReplacement(context, MaterialPageRoute(
+                      builder: (context) => HomePage(body["user"]["username"].toString(),body["jwt"].toString(),body["user"]["email"].toString())));
 
                 } else {
                   print('Request failed with status: ${response.statusCode}.');

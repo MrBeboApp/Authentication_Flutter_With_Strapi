@@ -34,16 +34,16 @@ class _RegisterPageState extends State<RegisterPage> {
 
           child: Column(
             children: [
-              customTextField("UserName", emailTextControl, 1),
+              customTextField("UserName", userNameTextControl, 1),
               customTextField("Email", emailTextControl, 1),
               customTextField("Password", passwordextControl, 1),
               FlatButton.icon(onPressed: () async {
                 var url = "http://161.35.205.247/auth/local/register";
 
                 var response = await http.post(url, body: {
-                  "username": "beboTwo",
-                  "email": "mebebo2@mail.com",
-                  "password": "Bebo2612"
+                  "username": userNameTextControl.text,
+                  "email": emailTextControl.text,
+                  "password": passwordextControl.text
                 });
                 if (response.statusCode == 200) {
                   var body  =jsonDecode(response.body);
