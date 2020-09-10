@@ -1,6 +1,9 @@
-# new_strapi_test
+# Authentication_Flutter_With_Strapi
 
-A new Flutter application.
+A new Flutter applicatio Authentication_Flutter_With_Strapi
+
+# login
+# Register
 
 ## Getting Started
 
